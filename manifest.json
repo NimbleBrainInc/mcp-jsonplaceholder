@@ -1,29 +1,35 @@
 {
   "manifest_version": "0.4",
-  "name": "@nimblebraininc/example",
+  "name": "@nimblebraininc/jsonplaceholder",
   "version": "0.1.0",
-  "description": "MCP server for the Example API",
+  "description": "MCP server for the JSONPlaceholder API - fake REST API for testing and prototyping",
   "author": {
     "name": "NimbleBrain Inc"
   },
-  "user_config": {
-    "api_key": {
-      "type": "string",
-      "title": "Example API Key",
-      "description": "Your API key from https://example.com/settings/api",
-      "sensitive": true,
-      "required": true
-    }
-  },
   "server": {
     "type": "python",
-    "entry_point": "mcp_example.server",
+    "entry_point": "mcp_jsonplaceholder.server",
     "mcp_config": {
       "command": "python",
-      "args": ["-m", "mcp_example.server"],
-      "env": {
-        "EXAMPLE_API_KEY": "${user_config.api_key}"
-      }
+      "args": ["-m", "mcp_jsonplaceholder.server"]
     }
-  }
+  },
+  "tools": [
+    {"name": "list_posts", "description": "List posts, optionally filtered by user ID"},
+    {"name": "get_post", "description": "Get a single post by ID"},
+    {"name": "create_post", "description": "Create a new post"},
+    {"name": "update_post", "description": "Update an existing post"},
+    {"name": "delete_post", "description": "Delete a post by ID"},
+    {"name": "list_comments", "description": "List comments, optionally filtered by post ID"},
+    {"name": "get_post_comments", "description": "Get all comments for a specific post"},
+    {"name": "list_albums", "description": "List albums, optionally filtered by user ID"},
+    {"name": "get_album_photos", "description": "Get all photos in a specific album"},
+    {"name": "list_photos", "description": "List photos, optionally filtered by album ID"},
+    {"name": "get_photo", "description": "Get a single photo by ID"},
+    {"name": "list_todos", "description": "List todos, optionally filtered by user ID or completion status"},
+    {"name": "get_todo", "description": "Get a single todo by ID"},
+    {"name": "get_user_todos", "description": "Get all todos for a specific user"},
+    {"name": "list_users", "description": "List all users"},
+    {"name": "get_user", "description": "Get a single user by ID"}
+  ]
 }

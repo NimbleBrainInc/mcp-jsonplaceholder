@@ -1,20 +1,20 @@
-# Example MCP Server
+# JSONPlaceholder MCP Server
 
-MCP server providing Example API functionality via FastMCP.
+MCP server providing JSONPlaceholder API functionality via FastMCP.
 
 ## Architecture
 
 ```
-src/mcp_example/
+src/mcp_jsonplaceholder/
 ├── server.py      # MCP tools (FastMCP) + entrypoints
-├── api_client.py  # Async HTTP client for Example API
+├── api_client.py  # Async HTTP client for JSONPlaceholder API
 └── api_models.py  # Pydantic models for API responses
 ```
 
 ## Critical
 
-- Package name: `@nimblebraininc/example` (npm-style scope, matches GitHub org)
-- Manifest uses module execution: `python -m mcp_example.server`
+- Package name: `@nimblebraininc/jsonplaceholder` (npm-style scope, matches GitHub org)
+- Manifest uses module execution: `python -m mcp_jsonplaceholder.server`
 - Server needs both entrypoints:
   ```python
   app = mcp.http_app()  # HTTP deployment
@@ -22,26 +22,7 @@ src/mcp_example/
       mcp.run()  # Stdio for Claude Desktop / mpak
   ```
 - All logs to stderr (stdout is reserved for JSON-RPC)
-
-## user_config
-
-API key configured via manifest `user_config`, not hardcoded:
-```json
-{
-  "user_config": {
-    "api_key": {
-      "type": "string",
-      "sensitive": true,
-      "required": true
-    }
-  },
-  "server": {
-    "mcp_config": {
-      "env": { "EXAMPLE_API_KEY": "${user_config.api_key}" }
-    }
-  }
-}
-```
+- No authentication required (JSONPlaceholder is a free public API)
 
 ## Tooling
 
@@ -70,7 +51,7 @@ Version lives in four files that MUST stay in sync:
 | `manifest.json` | `version` |
 | `server.json` | `version` |
 | `pyproject.toml` | `version` |
-| `src/mcp_example/__init__.py` | `__version__` |
+| `src/mcp_jsonplaceholder/__init__.py` | `__version__` |
 
 Bump all at once: `make bump VERSION=0.2.0`
 

@@ -1,7 +1,7 @@
 {
-  "name": "@nimblebraininc/example",
+  "name": "@nimblebraininc/jsonplaceholder",
   "version": "0.1.0",
-  "description": "MCP server for the Example API",
+  "description": "MCP server for the JSONPlaceholder API",
   "publisher": "nimblebraininc",
-  "repository": "https://github.com/NimbleBrainInc/mcp-example"
+  "repository": "https://github.com/NimbleBrainInc/mcp-jsonplaceholder"
 }

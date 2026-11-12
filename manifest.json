@@ -2,6 +2,7 @@
   "manifest_version": "0.4",
   "name": "@nimblebraininc/jsonplaceholder",
   "version": "0.1.0",
+  "license": "MIT",
   "description": "MCP server for the JSONPlaceholder API - fake REST API for testing and prototyping",
   "author": {
     "name": "NimbleBrain Inc"

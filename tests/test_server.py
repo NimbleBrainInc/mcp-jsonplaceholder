@@ -308,3 +308,16 @@ async def test_api_error_propagation(mock_client):
 
         with pytest.raises(JSONPlaceholderAPIError):
             await list_posts()
+
+
+@pytest.mark.asyncio
+async def test_api_error_is_reported_to_context(mock_client):
+    """An API error is awaited onto the context's error log, then re-raised."""
+    mock_client.list_posts = AsyncMock(side_effect=JSONPlaceholderAPIError(404, "Not found"))
+    ctx = AsyncMock()
+    with patch("mcp_jsonplaceholder.server.get_client", return_value=mock_client):
+        from mcp_jsonplaceholder.server import list_posts
+
+        with pytest.raises(JSONPlaceholderAPIError):
+            await list_posts(ctx=ctx)
+    ctx.error.assert_awaited_once_with("API error: Not found")

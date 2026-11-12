@@ -62,7 +62,7 @@ async def list_posts(
         return await client.list_posts(user_id=user_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -82,7 +82,7 @@ async def get_post(
         return await client.get_post(post_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -106,7 +106,7 @@ async def create_post(
         return await client.create_post(title=title, body=body, user_id=user_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -132,7 +132,7 @@ async def update_post(
         return await client.update_post(post_id, title=title, body=body, user_id=user_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -152,7 +152,7 @@ async def delete_post(
         return await client.delete_post(post_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -177,7 +177,7 @@ async def list_comments(
         return await client.list_comments(post_id=post_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -197,7 +197,7 @@ async def get_post_comments(
         return await client.get_post_comments(post_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -222,7 +222,7 @@ async def list_albums(
         return await client.list_albums(user_id=user_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -242,7 +242,7 @@ async def get_album_photos(
         return await client.get_album_photos(album_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -267,7 +267,7 @@ async def list_photos(
         return await client.list_photos(album_id=album_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -287,7 +287,7 @@ async def get_photo(
         return await client.get_photo(photo_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -314,7 +314,7 @@ async def list_todos(
         return await client.list_todos(user_id=user_id, completed=completed)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -334,7 +334,7 @@ async def get_todo(
         return await client.get_todo(todo_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -354,7 +354,7 @@ async def get_user_todos(
         return await client.get_user_todos(user_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -377,7 +377,7 @@ async def list_users(
         return await client.list_users()
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
@@ -397,7 +397,7 @@ async def get_user(
         return await client.get_user(user_id)
     except JSONPlaceholderAPIError as e:
         if ctx:
-            ctx.error(f"API error: {e.message}")
+            await ctx.error(f"API error: {e.message}")
         raise
 
 
